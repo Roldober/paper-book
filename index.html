@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>БУМАЖНАЯ КНИГА</title>
+    <style>
+        :root { --gold: #d4af37; --bg: #050505; --card-bg: #0f0f0f; --text: #b8b8b8; }
+        body { background: var(--bg); color: var(--text); font-family: 'Times New Roman', serif; margin: 0; padding: 0; overflow-x: hidden; }
+        header { text-align: center; padding: 80px 0; border-bottom: 1px solid #222; margin-bottom: 50px; }
+        header h1 { color: var(--gold); font-size: 65px; letter-spacing: 15px; text-transform: uppercase; margin: 0; font-weight: normal; }
+        #main-menu { display: flex; flex-direction: column; align-items: center; padding: 0 20px 100px 20px; }
+        .post-card {
+            background: var(--card-bg); width: 100%; max-width: 950px; border: 1px solid #222; padding: 50px;
+            display: flex; align-items: center; cursor: pointer; transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); 
+            margin-bottom: 50px; text-decoration: none; color: inherit; box-shadow: 0 20px 50px rgba(0,0,0,0.9);
+        }
+        .post-card:hover { border-color: var(--gold); transform: translateY(-10px); box-shadow: 0 30px 60px rgba(212, 175, 55, 0.1); }
+        .book-cover {
+            width: 180px; height: 260px; background: linear-gradient(135deg, #1a1a1a 0%, #000 100%);
+            border: 2px solid var(--gold); flex-shrink: 0; display: flex; justify-content: center; align-items: center; position: relative;
+        }
+        .book-cover::after { color: var(--gold); font-size: 100px; font-weight: bold; }
+        .book-cover.lyudmila::after { content: "Л"; }
+        .book-cover.oni::after { content: "О́"; }
+        .book-cover.humor::after { content: "У"; }
+        .post-info { margin-left: 60px; }
+        .post-info h1 { color: var(--gold); font-size: 45px; margin: 0 0 20px 0; letter-spacing: 5px; text-transform: uppercase; }
+        .post-info p { font-size: 24px; line-height: 1.6; color: #888; margin: 0; font-style: italic; }
+    </style>
+</head>
+<body>
+    <header><h1>БУМАЖНАЯ КНИГА</h1></header>
+    <div id="main-menu">
+        <a href="lyudmila.html" class="post-card">
+            <div class="book-cover lyudmila"></div>
+            <div class="post-info">
+                <h1>ЛЮДМИЛА</h1>
+                <p>Героический эпос о рязанской деве в годы Великой войны (1941–1945). 10 глав мужества.</p>
+            </div>
+        </a>
+        <a href="oni.html" class="post-card">
+            <div class="book-cover oni"></div>
+            <div class="post-info">
+                <h1>О́НИ</h1>
+                <p>Мистическая сага о битве русского офицера с демонами восточных гор. Полная версия.</p>
+            </div>
+        </a>
+        <a href="learned-man.html" class="post-card">
+            <div class="book-cover humor"></div>
+            <div class="post-info">
+                <h1>УЧЁНЫЙ МУЖ</h1>
+                <p>Сатирический роман о великом гадюкинском мудреце Аполлоне. 10 глав искрометного абсурда.</p>
+            </div>
+        </a>
+    </div>
+</body>
+</html>
