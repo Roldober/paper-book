@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -17,13 +16,12 @@
         }
         .post-card:hover { border-color: var(--gold); transform: translateY(-10px); box-shadow: 0 30px 60px rgba(212, 175, 55, 0.1); }
         .book-cover {
-            width: 180px; height: 260px; background: linear-gradient(135deg, #1a1a1a 0%, #000 100%);
-            border: 2px solid var(--gold); flex-shrink: 0; display: flex; justify-content: center; align-items: center; position: relative;
+            width: 180px; height: 260px; background-size: cover; background-position: center;
+            border: 2px solid var(--gold); flex-shrink: 0; display: flex; justify-content: center; align-items: center;
         }
-        .book-cover::after { color: var(--gold); font-size: 100px; font-weight: bold; }
-        .book-cover.lyudmila::after { content: "Л"; }
-        .book-cover.oni::after { content: "О́"; }
-        .book-cover.humor::after { content: "У"; }
+        .book-cover.lyudmila { background-image: url('lyudmila.png'); }
+        .book-cover.oni::after { content: "О‌"; color: var(--gold); font-size: 100px; }
+        .book-cover.humor::after { content: "У"; color: var(--gold); font-size: 100px; }
         .post-info { margin-left: 60px; }
         .post-info h1 { color: var(--gold); font-size: 45px; margin: 0 0 20px 0; letter-spacing: 5px; text-transform: uppercase; }
         .post-info p { font-size: 24px; line-height: 1.6; color: #888; margin: 0; font-style: italic; }
@@ -42,15 +40,15 @@
         <a href="oni.html" class="post-card">
             <div class="book-cover oni"></div>
             <div class="post-info">
-                <h1>О́НИ</h1>
-                <p>Мистическая сага о битве русского офицера с демонами восточных гор. Полная версия.</p>
+                <h1>О‌НИ</h1>
+                <p>Мистическая сага о битве русского офицера с демонами восточных гор.</p>
             </div>
         </a>
         <a href="learned-man.html" class="post-card">
             <div class="book-cover humor"></div>
             <div class="post-info">
                 <h1>УЧЁНЫЙ МУЖ</h1>
-                <p>Сатирический роман о великом гадюкинском мудреце Аполлоне. 10 глав искрометного абсурда.</p>
+                <p>Сатирический роман о великом гадюкинском мудреце Аполлоне. 10 глав.</p>
             </div>
         </a>
     </div>
