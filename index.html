@@ -18,13 +18,14 @@
         .book-cover {
             width: 180px; height: 260px; background-size: cover; background-position: center;
             border: 2px solid var(--gold); flex-shrink: 0; display: flex; justify-content: center; align-items: center;
+            font-size: 120px; color: var(--gold); background: #0a0a0a; text-transform: uppercase;
         }
-        .book-cover.lyudmila { background-image: url('lyudmila.png'); }
-        .book-cover.oni { background-image: url('oni.png'); }
-        .book-cover.humor { background-image: url('learned-man.png'); }
-        .book-cover.seventh { background-image: url('seventh.png'); }
-        .book-cover.parom { background-image: url('parom.png'); }
-        .book-cover.scouts { background-image: url('scouts.png'); }
+        .book-cover.lyudmila { background-image: url('lyudmila.png'); font-size: 0; }
+        .book-cover.oni { background-image: url('oni.png'); font-size: 0; }
+        .book-cover.humor { background-image: url('learned-man.png'); font-size: 0; }
+        .book-cover.seventh { background-image: url('seventh.png'); font-size: 0; }
+        .book-cover.parom { background-image: url('parom.png'); font-size: 0; }
+        .book-cover.scouts { background-image: url('scouts.png'); font-size: 0; }
         .post-info { margin-left: 60px; }
         .post-info h1 { color: var(--gold); font-size: 45px; margin: 0 0 20px 0; letter-spacing: 5px; text-transform: uppercase; }
         .post-info p { font-size: 24px; line-height: 1.6; color: #888; margin: 0; font-style: italic; }
@@ -33,6 +34,13 @@
 <body>
     <header><h1>БУМАЖНАЯ КНИГА</h1></header>
     <div id="main-menu">
+        <a href="blok-molnii.html" class="post-card">
+            <div class="book-cover">Б</div>
+            <div class="post-info">
+                <h1>МОЛНИИ ИСКУССТВА</h1>
+                <p>А. А. Блок. Итальянские впечатления о том, как искусство бьёт прямо в сердце.</p>
+            </div>
+        </a>
         <a href="scouts.html" class="post-card">
             <div class="book-cover scouts"></div>
             <div class="post-info">
@@ -51,14 +59,14 @@
             <div class="book-cover seventh"></div>
             <div class="post-info">
                 <h1>СЕДЬМОЙ</h1>
-                <p>Мистический триллер о бухте, где туман хранит голоса тех, кто ушел в пустоту. Ты — следующий.</p>
+                <p>Мистический триллер о бухте, где туман хранит голоса тех, кто ушел в пустоту.</p>
             </div>
         </a>
         <a href="lyudmila.html" class="post-card">
             <div class="book-cover lyudmila"></div>
             <div class="post-info">
                 <h1>ЛЮДМИЛА</h1>
-                <p>Героический эпос о рязанской деве в годы Великой войны (1941–1945). История мужества и спасения.</p>
+                <p>Героический эпос о рязанской деве в годы Великой войны (1941–1945).</p>
             </div>
         </a>
         <a href="oni.html" class="post-card">
