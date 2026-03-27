@@ -5,26 +5,72 @@
     <title>БУМАЖНАЯ КНИГА</title>
     <style>
         :root { --gold: #d4af37; --bg: #050505; --card-bg: #0f0f0f; --text: #b8b8b8; }
-        body { background: var(--bg); color: var(--text); font-family: 'Times New Roman', serif; margin: 0; padding: 0; overflow-x: hidden; }
-        header { text-align: center; padding: 80px 0; border-bottom: 1px solid #222; margin-bottom: 50px; }
+        body { background: var(--bg); color: var(--text); font-family: 'Times New Roman', serif; margin: 0; padding: 0; transition: background 0.3s, color 0.3s; }
+        body.light { --bg: #f5f5f0; --card-bg: #ffffff; --text: #222; --gold: #b8860b; }
+        header { text-align: center; padding: 60px 0 40px; border-bottom: 1px solid #222; margin-bottom: 50px; position: relative; }
         header h1 { 
             color: var(--gold); 
-            font-size: 72px; 
+            font-size: 64px; 
             font-weight: bold; 
-            letter-spacing: 12px; 
+            letter-spacing: 10px; 
             text-transform: uppercase; 
             margin: 0; 
-            text-shadow: 0 0 12px rgba(212, 175, 55, 0.8);
+            text-shadow: 0 0 12px rgba(212, 175, 55, 0.5);
+        }
+        .header-buttons { 
+            position: absolute; 
+            top: 20px; 
+            right: 20px; 
+            display: flex; 
+            gap: 15px; 
+        }
+        .header-btn {
+            background: rgba(0,0,0,0.6);
+            color: var(--gold);
+            border: 1px solid var(--gold);
+            padding: 8px 18px;
+            cursor: pointer;
+            font-size: 14px;
+            text-transform: uppercase;
+            transition: all 0.3s;
+            border-radius: 30px;
+        }
+        body.light .header-btn {
+            background: rgba(0,0,0,0.1);
+        }
+        .header-btn:hover {
+            background: var(--gold);
+            color: #000;
+            border-color: var(--gold);
         }
         #main-menu { display: flex; flex-direction: column; align-items: center; padding: 0 20px 100px 20px; }
         .post-card {
-            background: var(--card-bg); width: 100%; max-width: 950px; border: 1px solid #222; padding: 50px;
-            display: flex; align-items: center; cursor: pointer; transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); 
-            margin-bottom: 50px; text-decoration: none; color: inherit; box-shadow: 0 20px 50px rgba(0,0,0,0.9);
+            background: var(--card-bg);
+            width: 100%;
+            max-width: 950px;
+            border: 1px solid #222;
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.4s;
+            margin-bottom: 40px;
+            text-decoration: none;
+            color: inherit;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
         }
-        .post-card:hover { border-color: var(--gold); transform: translateY(-10px); box-shadow: 0 30px 60px rgba(212, 175, 55, 0.1); }
+        .post-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(212, 175, 55, 0.2);
+        }
+        .post-card:hover .book-cover {
+            transform: scale(1.02);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
+        }
         .book-cover {
-            width: 180px; height: 260px;
+            width: 160px;
+            height: 230px;
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
@@ -34,9 +80,10 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 120px;
+            font-size: 100px;
             color: var(--gold);
             text-transform: uppercase;
+            transition: all 0.3s;
         }
         .book-cover.lyudmila { background-image: url('lyudmila.png'); }
         .book-cover.oni { background-image: url('oni.png'); }
@@ -46,86 +93,95 @@
         .book-cover.scouts { background-image: url('scouts.png'); }
         .book-cover.blok { background-image: url('blok-molnii.png'); }
         .book-cover.alex { background-image: url('alex.png'); }
-        .post-info { margin-left: 60px; }
+        .post-info { margin-left: 50px; }
         .post-info h1 { 
             color: var(--gold); 
-            font-size: 48px; 
+            font-size: 40px; 
             font-weight: bold; 
-            text-shadow: 0 0 8px rgba(212, 175, 55, 0.6);
-            margin: 0 0 20px 0; 
-            letter-spacing: 5px; 
+            margin: 0 0 15px 0; 
+            letter-spacing: 3px; 
             text-transform: uppercase; 
         }
         .post-info p { 
-            font-size: 25px; 
-            line-height: 1.6; 
-            color: #bbb; 
-            font-weight: 500;
+            font-size: 22px; 
+            line-height: 1.5; 
+            color: #aaa; 
             margin: 0; 
             font-style: italic; 
-            text-shadow: 0 0 4px rgba(0,0,0,0.5);
+        }
+        body.light .post-info p { color: #555; }
+        footer {
+            text-align: center;
+            margin-top: 80px;
+            padding: 40px;
+            color: #666;
+            border-top: 1px solid #333;
+            font-size: 18px;
+        }
+        @media (max-width: 700px) {
+            .post-card { flex-direction: column; text-align: center; padding: 30px; }
+            .post-info { margin-left: 0; margin-top: 25px; }
+            .book-cover { width: 140px; height: 200px; font-size: 80px; }
+            .post-info h1 { font-size: 32px; }
+            .header-buttons { position: static; justify-content: center; margin-top: 20px; }
         }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <header><h1>БУМАЖНАЯ КНИГА</h1></header>
+    <header>
+        <h1>БУМАЖНАЯ КНИГА</h1>
+        <div class="header-buttons">
+            <button class="header-btn" id="randomBookBtn"><i class="fas fa-dice"></i> СЛУЧАЙНАЯ</button>
+            <button class="header-btn" id="themeToggleBtn"><i class="fas fa-sun"></i> ТЁМНАЯ</button>
+        </div>
+    </header>
     <div id="main-menu">
-        <a href="alex.html" class="post-card">
-            <div class="book-cover alex"></div>
-            <div class="post-info">
-                <h1>АЛЁШКА</h1>
-                <p>Рассказ о мальчике, который чуть не утонул в холодной речке, о друзьях, страхе и прощении.</p>
-            </div>
-        </a>
-        <a href="blok-molnii.html" class="post-card">
-            <div class="book-cover blok"></div>
-            <div class="post-info">
-                <h1>МОЛНИИ ИСКУССТВА</h1>
-                <p>А. А. Блок. Итальянские впечатления о том, как искусство бьёт прямо в сердце.</p>
-            </div>
-        </a>
-        <a href="scouts.html" class="post-card">
-            <div class="book-cover scouts"></div>
-            <div class="post-info">
-                <h1>РАЗВЕДЧИКИ</h1>
-                <p>Повесть о войне, штабных проверках и настоящих людях за линией фронта.</p>
-            </div>
-        </a>
-        <a href="parom.html" class="post-card">
-            <div class="book-cover parom"></div>
-            <div class="post-info">
-                <h1>КОГДА УХОДЯТ ПАРОМЫ</h1>
-                <p>Мистическая повесть о реке, старом паромщике и душах, что ждут на том берегу.</p>
-            </div>
-        </a>
-        <a href="seventh.html" class="post-card">
-            <div class="book-cover seventh"></div>
-            <div class="post-info">
-                <h1>СЕДЬМОЙ</h1>
-                <p>Мистический триллер о бухте, где туман хранит голоса тех, кто ушел в пустоту.</p>
-            </div>
-        </a>
-        <a href="lyudmila.html" class="post-card">
-            <div class="book-cover lyudmila"></div>
-            <div class="post-info">
-                <h1>ЛЮДМИЛА</h1>
-                <p>Героический эпос о рязанской деве в годы Великой войны (1941–1945).</p>
-            </div>
-        </a>
-        <a href="oni.html" class="post-card">
-            <div class="book-cover oni"></div>
-            <div class="post-info">
-                <h1>О‌НИ</h1>
-                <p>Мистическая сага о битве русского офицера с демонами восточных гор.</p>
-            </div>
-        </a>
-        <a href="learned-man.html" class="post-card">
-            <div class="book-cover humor"></div>
-            <div class="post-info">
-                <h1>УЧЁНЫЙ МУЖ</h1>
-                <p>Сатирический роман о великом гадюкинском мудреце Аполлоне.</p>
-            </div>
-        </a>
+        <a href="alex.html" class="post-card"><div class="book-cover alex"></div><div class="post-info"><h1>АЛЁШКА</h1><p>Рассказ о мальчике, который чуть не утонул в холодной речке, о друзьях, страхе и прощении.</p></div></a>
+        <a href="blok-molnii.html" class="post-card"><div class="book-cover blok"></div><div class="post-info"><h1>МОЛНИИ ИСКУССТВА</h1><p>А. А. Блок. Итальянские впечатления о том, как искусство бьёт прямо в сердце.</p></div></a>
+        <a href="scouts.html" class="post-card"><div class="book-cover scouts"></div><div class="post-info"><h1>РАЗВЕДЧИКИ</h1><p>Повесть о войне, штабных проверках и настоящих людях за линией фронта.</p></div></a>
+        <a href="parom.html" class="post-card"><div class="book-cover parom"></div><div class="post-info"><h1>КОГДА УХОДЯТ ПАРОМЫ</h1><p>Мистическая повесть о реке, старом паромщике и душах, что ждут на том берегу.</p></div></a>
+        <a href="seventh.html" class="post-card"><div class="book-cover seventh"></div><div class="post-info"><h1>СЕДЬМОЙ</h1><p>Мистический триллер о бухте, где туман хранит голоса тех, кто ушел в пустоту.</p></div></a>
+        <a href="lyudmila.html" class="post-card"><div class="book-cover lyudmila"></div><div class="post-info"><h1>ЛЮДМИЛА</h1><p>Героический эпос о рязанской деве в годы Великой войны (1941–1945).</p></div></a>
+        <a href="oni.html" class="post-card"><div class="book-cover oni"></div><div class="post-info"><h1>О‌НИ</h1><p>Мистическая сага о битве русского офицера с демонами восточных гор.</p></div></a>
+        <a href="learned-man.html" class="post-card"><div class="book-cover humor"></div><div class="post-info"><h1>УЧЁНЫЙ МУЖ</h1><p>Сатирический роман о великом гадюкинском мудреце Аполлоне.</p></div></a>
     </div>
+    <footer><i class="fas fa-book"></i> БУМАЖНАЯ КНИГА — читай то, что не выходит из моды</footer>
+
+    <script>
+        // Случайная книга
+        const books = [
+            "alex.html", "blok-molnii.html", "scouts.html", "parom.html",
+            "seventh.html", "lyudmila.html", "oni.html", "learned-man.html"
+        ];
+        document.getElementById("randomBookBtn").onclick = () => {
+            const randomIndex = Math.floor(Math.random() * books.length);
+            window.location.href = books[randomIndex];
+        };
+
+        // Переключение темы
+        const themeBtn = document.getElementById("themeToggleBtn");
+        function updateThemeButton(isLight) {
+            if (isLight) {
+                themeBtn.innerHTML = '<i class="fas fa-moon"></i> ТЁМНАЯ';
+                themeBtn.title = "Переключить на тёмную тему";
+            } else {
+                themeBtn.innerHTML = '<i class="fas fa-sun"></i> СВЕТЛАЯ';
+                themeBtn.title = "Переключить на светлую тему";
+            }
+        }
+        themeBtn.onclick = () => {
+            document.body.classList.toggle("light");
+            const isLight = document.body.classList.contains("light");
+            localStorage.setItem("theme", isLight ? "light" : "dark");
+            updateThemeButton(isLight);
+        };
+        if (localStorage.getItem("theme") === "light") {
+            document.body.classList.add("light");
+            updateThemeButton(true);
+        } else {
+            updateThemeButton(false);
+        }
+    </script>
 </body>
 </html>
