@@ -7,7 +7,15 @@
         :root { --gold: #d4af37; --bg: #050505; --card-bg: #0f0f0f; --text: #b8b8b8; }
         body { background: var(--bg); color: var(--text); font-family: 'Times New Roman', serif; margin: 0; padding: 0; overflow-x: hidden; }
         header { text-align: center; padding: 80px 0; border-bottom: 1px solid #222; margin-bottom: 50px; }
-        header h1 { color: var(--gold); font-size: 65px; letter-spacing: 15px; text-transform: uppercase; margin: 0; font-weight: normal; }
+        header h1 { 
+            color: var(--gold); 
+            font-size: 72px; 
+            font-weight: bold; 
+            letter-spacing: 12px; 
+            text-transform: uppercase; 
+            margin: 0; 
+            text-shadow: 0 0 12px rgba(212, 175, 55, 0.8);
+        }
         #main-menu { display: flex; flex-direction: column; align-items: center; padding: 0 20px 100px 20px; }
         .post-card {
             background: var(--card-bg); width: 100%; max-width: 950px; border: 1px solid #222; padding: 50px;
@@ -37,14 +45,38 @@
         .book-cover.parom { background-image: url('parom.png'); }
         .book-cover.scouts { background-image: url('scouts.png'); }
         .book-cover.blok { background-image: url('blok-molnii.png'); }
+        .book-cover.alex { background-image: url('alex.png'); }
         .post-info { margin-left: 60px; }
-        .post-info h1 { color: var(--gold); font-size: 45px; margin: 0 0 20px 0; letter-spacing: 5px; text-transform: uppercase; }
-        .post-info p { font-size: 24px; line-height: 1.6; color: #888; margin: 0; font-style: italic; }
+        .post-info h1 { 
+            color: var(--gold); 
+            font-size: 48px; 
+            font-weight: bold; 
+            text-shadow: 0 0 8px rgba(212, 175, 55, 0.6);
+            margin: 0 0 20px 0; 
+            letter-spacing: 5px; 
+            text-transform: uppercase; 
+        }
+        .post-info p { 
+            font-size: 25px; 
+            line-height: 1.6; 
+            color: #bbb; 
+            font-weight: 500;
+            margin: 0; 
+            font-style: italic; 
+            text-shadow: 0 0 4px rgba(0,0,0,0.5);
+        }
     </style>
 </head>
 <body>
     <header><h1>БУМАЖНАЯ КНИГА</h1></header>
     <div id="main-menu">
+        <a href="alex.html" class="post-card">
+            <div class="book-cover alex"></div>
+            <div class="post-info">
+                <h1>АЛЁШКА</h1>
+                <p>Рассказ о мальчике, который чуть не утонул в холодной речке, о друзьях, страхе и прощении.</p>
+            </div>
+        </a>
         <a href="blok-molnii.html" class="post-card">
             <div class="book-cover blok"></div>
             <div class="post-info">
