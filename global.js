@@ -1,3 +1,10 @@
+(function() {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+        document.body.classList.add('light');
+    }
+})();
+
 document.addEventListener('DOMContentLoaded', function() {
     const manuscript = document.querySelector('.manuscript');
     if (!manuscript) return;

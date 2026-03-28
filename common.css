@@ -34,3 +34,14 @@ footer { text-align: center; margin-top: 150px; border-top: 1px solid #222; padd
     background: #b8860b;
     transform: scale(1.02);
 }
+body.light {
+    background: #f5f5f0;
+    color: #222;
+}
+body.light .manuscript {
+    background: #fff;
+    border-color: #ddd;
+}
+body.light .dialogue {
+    color: #222;
+}
