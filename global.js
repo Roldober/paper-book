@@ -1,3 +1,8 @@
+const link = document.createElement('link');
+link.rel = 'icon';
+link.type = 'image/x-icon';
+link.href = 'favicon.ico';
+document.head.appendChild(link);
 (function() {
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'light') {
