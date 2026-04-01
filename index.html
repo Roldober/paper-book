@@ -118,9 +118,11 @@
         .carousel-card .post-info h1 {
             font-size: 28px;
             letter-spacing: 2px;
+            margin: 0 0 10px;
         }
         .carousel-card .post-info p {
             font-size: 18px;
+            line-height: 1.4;
         }
         .carousel-btn {
             position: absolute;
@@ -163,7 +165,6 @@
         </div>
     </header>
     <div id="main-menu">
-        <!-- Карточки книг -->
         <a href="alex.html" class="post-card"><div class="book-cover alex"></div><div class="post-info"><h1>АЛЁШКА</h1><p>Рассказ о мальчике, который чуть не утонул в холодной речке, о друзьях, страхе и прощении.</p></div></a>
         <a href="blok-molnii.html" class="post-card"><div class="book-cover blok"></div><div class="post-info"><h1>МОЛНИИ ИСКУССТВА</h1><p>А. А. Блок. Итальянские впечатления о том, как искусство бьёт прямо в сердце.</p></div></a>
         <a href="scouts.html" class="post-card"><div class="book-cover scouts"></div><div class="post-info"><h1>РАЗВЕДЧИКИ</h1><p>Повесть о войне, штабных проверках и настоящих людях за линией фронта.</p></div></a>
@@ -185,7 +186,6 @@
             window.location.href = books[randomIndex];
         };
 
-        // Тема
         const themeBtn = document.getElementById("themeToggleBtn");
         function updateThemeButton(isLight) {
             themeBtn.innerHTML = isLight ? '<i class="fas fa-moon"></i> ТЁМНАЯ' : '<i class="fas fa-sun"></i> СВЕТЛАЯ';
@@ -203,7 +203,6 @@
             updateThemeButton(false);
         }
 
-        // Карусель
         let carouselActive = false;
         let currentIndex = 0;
         const menu = document.getElementById('main-menu');
