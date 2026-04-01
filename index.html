@@ -60,7 +60,7 @@
             position: relative;
             width: 100%;
             max-width: 1200px;
-            height: 500px;
+            height: 550px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -75,6 +75,10 @@
             filter: blur(4px);
             transform: scale(0.8) translateX(0) rotateY(0deg);
             z-index: 0;
+            background: transparent;
+            text-decoration: none;
+            color: inherit;
+            text-align: center;
         }
         .carousel-card.active {
             opacity: 1;
@@ -106,6 +110,10 @@
         .carousel-card .post-info {
             margin: 20px 0 0;
             text-align: center;
+            display: none;
+        }
+        .carousel-card.active .post-info {
+            display: block;
         }
         .carousel-card .post-info h1 {
             font-size: 28px;
@@ -261,4 +269,4 @@
         };
     </script>
 </body>
-</html> ф
+</html>
